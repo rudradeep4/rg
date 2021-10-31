@@ -59,8 +59,8 @@ const Projects = React.forwardRef(({close}, ref) => {
                 <LinkBox 
                     onMouseEnter={bardoDts.showDetails} 
                     onMouseLeave={bardoDts.hideDetails} 
-                    w={[250, 350]} 
-                    h={200} 
+                    w={350} 
+                    h={250} 
                     alignItems="center"
                     display="flex"
                 >
@@ -100,8 +100,8 @@ const Projects = React.forwardRef(({close}, ref) => {
                 <LinkBox 
                     onMouseEnter={sg8Dts.showDetails} 
                     onMouseLeave={sg8Dts.hideDetails} 
-                    w={[250, 350]} 
-                    h={200} 
+                    w={350} 
+                    h={250} 
                     alignItems="center"
                     display="flex"
                 >
