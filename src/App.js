@@ -25,7 +25,7 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Global styles={GlobalStyles} />
-      <Box bg="black">
+      <Box bg="#FA7B62">
         <Grid minH="100vh" p={3}>
             {isLargeScreen ? <LandingPage /> : <LandingPageMobile />} 
         </Grid>
