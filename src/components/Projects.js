@@ -13,7 +13,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import React, { useState } from 'react'
 
 const MotionImage = motion(Image)
-const MotionText = motion(Text)
+const MotionBox = motion(Box)
 
 const Projects = React.forwardRef(({close}, ref) => {
 
@@ -38,7 +38,7 @@ const Projects = React.forwardRef(({close}, ref) => {
 
     const variants = {
         visible: {opacity: 1},
-        hidden: {opacity: 0}
+        hidden: {opacity: 0},
     }
 
     const bardoDts = useOverlayDisp()
@@ -69,19 +69,19 @@ const Projects = React.forwardRef(({close}, ref) => {
                             ?   <AnimatePresence>
                                     {bardoDts.details && (
                                         <MotionImage 
+                                            rel="preload"
                                             src="bardocap.png" 
                                             rounded="lg" 
                                             variants={variants} 
                                             initial="hidden" 
                                             animate="visible" 
-                                            exit="hidden" 
                                         />
                                     )}
                                     {!bardoDts.details && (
-                                        <MotionText fontSize="md" variants={variants} initial="hidden" animate="visible">
+                                        <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible">
                                             <Text fontWeight="semibold">Bardo Capital</Text>
                                             <Text>Design for an upcoming hedge fund with a minimalist ethos.</Text>
-                                        </MotionText>
+                                        </MotionBox>
                                     )}
                                 </AnimatePresence>
                             :   <Image 
@@ -110,18 +110,19 @@ const Projects = React.forwardRef(({close}, ref) => {
                             ?   <AnimatePresence>
                                     {sg8Dts.details && (
                                         <MotionImage 
+                                            rel="preload"
                                             src="sg8.png" 
                                             rounded="lg" 
                                             variants={variants} 
                                             initial="hidden" 
                                             animate="visible" 
-                                            exit="hidden" />
+                                        />
                                     )}
                                     {!sg8Dts.details && (
-                                        <MotionText fontSize="md" variants={variants} initial="hidden" animate="visible">
+                                        <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible">
                                             <Text fontWeight="semibold">SG8</Text>
                                             <Text>Portfolio website for financial analyst and trader.</Text>
-                                        </MotionText>
+                                        </MotionBox>
                                     )}
                                 </AnimatePresence>
                             :   <Image 
