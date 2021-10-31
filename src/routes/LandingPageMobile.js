@@ -68,7 +68,6 @@ const LandingPageMobile = () => {
                 >
                     <DrawerContent>
                         <DrawerCloseButton />
-                        {/* <DrawerHeader pt={10} bg="#FA7B62"><Center>Rudradeep Guha</Center><Center>Cognitive scientist, coder</Center></DrawerHeader> */}
                         <DrawerBody bg="#FA7B62">
                             <About close={onCloseCV} />
                         </DrawerBody>
@@ -83,7 +82,6 @@ const LandingPageMobile = () => {
                 >
                     <DrawerContent>
                             <DrawerCloseButton />
-                            {/* <DrawerHeader pt={10} bg="#FA7B62"><Center>Projects</Center></DrawerHeader> */}
                             <DrawerBody bg="#FA7B62">
                                 <Projects close={onCloseProjects} />
                             </DrawerBody>

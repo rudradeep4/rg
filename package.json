@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^12.8.3",
     "focus-visible": "^5.2.0",
     "framer-motion": "^4.1.17",
+    "gh-pages": "^3.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^3.11.0",
@@ -19,6 +20,8 @@
     "react-scripts": "4.0.3"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -38,5 +41,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "https://rudradeep4.github.io"
 }
