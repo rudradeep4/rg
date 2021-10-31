@@ -87,6 +87,7 @@ const Projects = React.forwardRef(({close}, ref) => {
                             :   <Image 
                                     src="bardocap.png" 
                                     rounded="lg" 
+                                    loading="eager"
                                 />
                         }
                     </LinkOverlay>
@@ -126,6 +127,7 @@ const Projects = React.forwardRef(({close}, ref) => {
                             :   <Image 
                                     src="sg8.png" 
                                     rounded="lg" 
+                                    loading="eager"
                                 /> 
                         }   
                     </LinkOverlay>
