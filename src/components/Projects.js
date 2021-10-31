@@ -69,7 +69,7 @@ const Projects = React.forwardRef(({close}, ref) => {
                             ?   <AnimatePresence>
                                     {bardoDts.details && (
                                         <MotionImage 
-                                            rel="preload"
+                                            loading="eager"
                                             src="bardocap.png" 
                                             rounded="lg" 
                                             variants={variants} 
@@ -110,7 +110,7 @@ const Projects = React.forwardRef(({close}, ref) => {
                             ?   <AnimatePresence>
                                     {sg8Dts.details && (
                                         <MotionImage 
-                                            rel="preload"
+                                            loading="eager"
                                             src="sg8.png" 
                                             rounded="lg" 
                                             variants={variants} 
