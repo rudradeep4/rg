@@ -3,14 +3,17 @@ import {
     Text,
     Divider,
     Image,
+    Center,
+    IconButton,
     LinkBox,
     LinkOverlay,
     useOutsideClick,
-    Center,
-    useMediaQuery
+    useMediaQuery,
+    VStack
 } from '@chakra-ui/react'
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useState } from 'react'
+import { BiLinkExternal } from 'react-icons/bi'
 
 const MotionImage = motion(Image)
 const MotionBox = motion(Box)
@@ -37,8 +40,8 @@ const Projects = React.forwardRef(({close}, ref) => {
     }
 
     const variants = {
-        visible: {opacity: 1},
-        hidden: {opacity: 0},
+        visible: {opacity: 1, scaleY: 1, originY: 0},
+        hidden: {opacity: 0, scaleY: 0, originY: 0},
     }
 
     const bardoDts = useOverlayDisp()
@@ -51,90 +54,130 @@ const Projects = React.forwardRef(({close}, ref) => {
     })
 
     return (
-        <Box ref={ref} textAlign="center">
+        <VStack ref={ref} textAlign="center" spacing={10}>
+
             <Text py={10} fontSize="lg" fontWeight="semibold">
                 Projects
             </Text>
-            <Center>
-                <LinkBox 
-                    onMouseEnter={bardoDts.showDetails} 
-                    onMouseLeave={bardoDts.hideDetails} 
-                    w={350} 
-                    h={250} 
-                    alignItems="center"
-                    display="flex"
-                >
-                    <LinkOverlay href="http://bardocap.herokuapp.com" isExternal>
-                        {isLargeScreen 
-                            ?   <AnimatePresence>
-                                    {bardoDts.details && (
+
+            <LinkBox 
+                onMouseEnter={bardoDts.showDetails} 
+                onMouseLeave={bardoDts.hideDetails} 
+            >
+                {isLargeScreen 
+                    ?   <LinkOverlay href="http://bardocap.herokuapp.com" isExternal>
+                            <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible" pb={2}>
+                                <Text fontWeight="semibold">Bardo Capital</Text>
+                                <Text>Design for an upcoming hedge fund with a minimalist ethos.</Text>
+                                <AnimatePresence>
+                                    {!bardoDts.details && (
+                                        <IconButton 
+                                            icon={<BiLinkExternal />} 
+                                            variant="ghost" 
+                                            variants={variants} 
+                                            initial="visible" 
+                                            animate="hidden" />
+                                    )}
+                                </AnimatePresence>
+                            </MotionBox>
+                            {bardoDts.details && (
+                                <AnimatePresence>
+                                    <Center>
                                         <MotionImage 
+                                            w={300}
+                                            h={175}
                                             loading="eager"
                                             src="bardocap.png" 
                                             rounded="lg" 
                                             variants={variants} 
-                                            initial="hidden" 
-                                            animate="visible" 
+                                            initial="hidden"
+                                            animate="visible"
                                         />
-                                    )}
-                                    {!bardoDts.details && (
-                                        <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible">
-                                            <Text fontWeight="semibold">Bardo Capital</Text>
-                                            <Text>Design for an upcoming hedge fund with a minimalist ethos.</Text>
-                                        </MotionBox>
+                                    </Center>
+                                </AnimatePresence>
+                            )}
+                        </LinkOverlay>
+                    :   <LinkOverlay href="http://bardocap.herokuapp.com" isExternal>
+                            <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible" pb={2}>
+                                <Text fontWeight="semibold">Bardo Capital</Text>
+                                <Text>Design for an upcoming hedge fund with a minimalist ethos.</Text>
+                                <Center pt={2}>
+                                    <MotionImage 
+                                        w={300}
+                                        h={175}
+                                        loading="eager"
+                                        src="bardocap.png" 
+                                        rounded="lg" 
+                                        variants={variants} 
+                                        initial="hidden"
+                                        animate="visible"
+                                    />
+                                </Center>
+                            </MotionBox>
+                        </LinkOverlay>
+                }
+            </LinkBox>
+
+            <Divider bgColor="black" borderColor="black" pt={1} />
+
+            <LinkBox 
+                onMouseEnter={sg8Dts.showDetails} 
+                onMouseLeave={sg8Dts.hideDetails} 
+            >
+                {isLargeScreen
+                    ?  <LinkOverlay href="http://sg8.vercel.app" isExternal>
+                            <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible" pb={2}>
+                                <Text fontWeight="semibold">SG8</Text>
+                                <Text>Portfolio website for financial analyst and trader.</Text>
+                                <AnimatePresence>
+                                    {!sg8Dts.details && (
+                                        <IconButton 
+                                            icon={<BiLinkExternal />} 
+                                            variant="ghost" 
+                                            variants={variants} 
+                                            initial="visible" 
+                                            animate="hidden" />
                                     )}
                                 </AnimatePresence>
-                            :   <Image 
-                                    src="bardocap.png" 
-                                    rounded="lg" 
-                                    loading="eager"
-                                />
-                        }
-                    </LinkOverlay>
-                </LinkBox>
-            </Center>
-            <br />
-            <Divider bgColor="black" borderColor="black" pt={1} />
-            <br />
-            <Center>
-                <LinkBox 
-                    onMouseEnter={sg8Dts.showDetails} 
-                    onMouseLeave={sg8Dts.hideDetails} 
-                    w={350} 
-                    h={250} 
-                    alignItems="center"
-                    display="flex"
-                >
-                    <LinkOverlay href="http://sg8.vercel.app" isExternal>
-                        {isLargeScreen 
-                            ?   <AnimatePresence>
-                                    {sg8Dts.details && (
+                            </MotionBox>
+                            {sg8Dts.details && (
+                                <AnimatePresence>
+                                    <Center>
                                         <MotionImage 
+                                            w={300}
+                                            h={175}
                                             loading="eager"
                                             src="sg8.png" 
                                             rounded="lg" 
                                             variants={variants} 
-                                            initial="hidden" 
-                                            animate="visible" 
+                                            initial="hidden"
+                                            animate="visible"
                                         />
-                                    )}
-                                    {!sg8Dts.details && (
-                                        <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible">
-                                            <Text fontWeight="semibold">SG8</Text>
-                                            <Text>Portfolio website for financial analyst and trader.</Text>
-                                        </MotionBox>
-                                    )}
+                                    </Center>
                                 </AnimatePresence>
-                            :   <Image 
-                                    src="sg8.png" 
-                                    rounded="lg" 
-                                    loading="eager"
-                                /> 
-                        }   
-                    </LinkOverlay>
-                </LinkBox>
-            </Center>
-        </Box>
+                            )}
+                        </LinkOverlay> 
+                    :   <LinkOverlay href="http://sg8.vercel.app" isExternal>
+                            <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible" pb={2}>
+                                <Text fontWeight="semibold">SG8</Text>
+                                <Text>Portfolio website for financial analyst and trader.</Text>
+                                <Center pt={2}>
+                                    <MotionImage 
+                                        w={300}
+                                        h={175}
+                                        loading="eager"
+                                        src="sg8.png" 
+                                        rounded="lg" 
+                                        variants={variants} 
+                                        initial="hidden"
+                                        animate="visible"
+                                    />
+                                </Center>
+                            </MotionBox>
+                        </LinkOverlay>
+                }
+            </LinkBox>
+        </VStack>
     )
 })
 
