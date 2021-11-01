@@ -67,7 +67,7 @@ const LandingPageMobile = () => {
                     size="md"
                 >
                     <DrawerContent>
-                        <DrawerCloseButton />
+                        <DrawerCloseButton m={2} />
                         <DrawerBody bg="#FA7B62">
                             <About close={onCloseCV} />
                         </DrawerBody>
@@ -81,7 +81,7 @@ const LandingPageMobile = () => {
                     size="md"
                 >
                     <DrawerContent>
-                            <DrawerCloseButton />
+                            <DrawerCloseButton m={2} />
                             <DrawerBody bg="#FA7B62">
                                 <Projects close={onCloseProjects} />
                             </DrawerBody>
