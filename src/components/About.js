@@ -27,9 +27,9 @@ const About = React.forwardRef(({close}, ref) => {
         <Box ref={ref} textAlign="center" textColor="black" fontFamily="Inconsolata" fontSize="sm">
             <VStack>
                 <Text py={10} fontSize="md" fontWeight="semibold">
-                    Hi, I'm Rudradeep Guha.
+                    Rudradeep Guha
                     <br />
-                    I'm a cognitive scientist and coder interested in creating beautiful and performant web apps.
+                    Cognitive Scientist & Coder
                 </Text>
                 <Text fontSize="md">M.Sc. Cognitive Science</Text>
                 <Text fontSize="md">National Research University Higher School of Economics</Text>
@@ -37,7 +37,11 @@ const About = React.forwardRef(({close}, ref) => {
                 <Divider bgColor="black" borderColor="black" pt={1} />
                 <Text fontWeight="semibold">Thesis:</Text>
                 <Text>Novel Word Learning in Native and Non-Native Orthographies</Text>
-                <HStack><FaBrain /><Text>EEG</Text></HStack>
+                <HStack>
+                    <FaBrain /><Text>EEG |</Text>
+                    <Text>FieldTrip |</Text>
+                    <Text>MNE-Python</Text>
+                </HStack>
                 <br />
                 <br />
                 <br />

@@ -44,6 +44,7 @@ const Projects = React.forwardRef(({close}, ref) => {
         hidden: {opacity: 0, scaleY: 0, originY: 0},
     }
 
+    const btDts = useOverlayDisp()
     const bardoDts = useOverlayDisp()
     const sg8Dts = useOverlayDisp()
 
@@ -59,6 +60,66 @@ const Projects = React.forwardRef(({close}, ref) => {
             <Text py={10} fontSize="lg" fontWeight="semibold">
                 Projects
             </Text>
+
+            <LinkBox 
+                onMouseEnter={btDts.showDetails} 
+                onMouseLeave={btDts.hideDetails} 
+            >
+                {isLargeScreen
+                    ?  <LinkOverlay href="http://burning-trees.vercel.app" isExternal>
+                            <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible" pb={2}>
+                                <Text fontWeight="semibold">Burning Trees</Text>
+                                <Text>My personal music library.</Text>
+                                <AnimatePresence>
+                                    {!btDts.details && (
+                                        <IconButton 
+                                            icon={<BiLinkExternal />} 
+                                            variant="ghost" 
+                                            variants={variants} 
+                                            initial="visible" 
+                                            animate="hidden" />
+                                    )}
+                                </AnimatePresence>
+                            </MotionBox>
+                            {btDts.details && (
+                                <AnimatePresence>
+                                    <Center>
+                                        <MotionImage 
+                                            w={250}
+                                            h={150}
+                                            loading="eager"
+                                            src="bt.png" 
+                                            rounded="lg" 
+                                            variants={variants} 
+                                            initial="hidden"
+                                            animate="visible"
+                                        />
+                                    </Center>
+                                </AnimatePresence>
+                            )}
+                        </LinkOverlay> 
+                    :   <LinkOverlay href="http://burning-trees.vercel.app" isExternal>
+                            <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible" pb={2}>
+                                <Text fontWeight="semibold">Burning Trees</Text>
+                                <Text>My personal music library.</Text>
+                                <Center pt={2}>
+                                    <MotionImage 
+                                        w={250}
+                                        h={150}
+                                        loading="eager"
+                                        src="bt.png" 
+                                        rounded="lg" 
+                                        variants={variants} 
+                                        initial="hidden"
+                                        animate="visible"
+                                    />
+                                </Center>
+                            </MotionBox>
+                        </LinkOverlay>
+                }
+            </LinkBox>
+
+            <Divider bgColor="black" borderColor="black" pt={1} />
 
             <LinkBox 
                 onMouseEnter={bardoDts.showDetails} 
@@ -84,8 +145,8 @@ const Projects = React.forwardRef(({close}, ref) => {
                                 <AnimatePresence>
                                     <Center>
                                         <MotionImage 
-                                            w={300}
-                                            h={175}
+                                            w={250}
+                                            h={150}
                                             loading="eager"
                                             src="bardocap.png" 
                                             rounded="lg" 
@@ -103,8 +164,8 @@ const Projects = React.forwardRef(({close}, ref) => {
                                 <Text>Design for an upcoming hedge fund with a minimalist ethos.</Text>
                                 <Center pt={2}>
                                     <MotionImage 
-                                        w={300}
-                                        h={175}
+                                        w={250}
+                                        h={150}
                                         loading="eager"
                                         src="bardocap.png" 
                                         rounded="lg" 
@@ -144,8 +205,8 @@ const Projects = React.forwardRef(({close}, ref) => {
                                 <AnimatePresence>
                                     <Center>
                                         <MotionImage 
-                                            w={300}
-                                            h={175}
+                                            w={250}
+                                            h={150}
                                             loading="eager"
                                             src="sg8.png" 
                                             rounded="lg" 
@@ -163,8 +224,8 @@ const Projects = React.forwardRef(({close}, ref) => {
                                 <Text>Portfolio website for financial analyst and trader.</Text>
                                 <Center pt={2}>
                                     <MotionImage 
-                                        w={300}
-                                        h={175}
+                                        w={250}
+                                        h={150}
                                         loading="eager"
                                         src="sg8.png" 
                                         rounded="lg" 
