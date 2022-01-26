@@ -1,50 +1,48 @@
 import {
     Box,
     Text,
-    Divider,
-    Image,
-    Center,
     LinkBox,
     LinkOverlay,
     useOutsideClick,
     useMediaQuery,
-    VStack
+    VStack,
+    Divider
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import React, { useState } from 'react'
+import React from 'react'
 
-const MotionImage = motion(Image)
+// const MotionImage = motion(Image)
 const MotionBox = motion(Box)
 
 const Projects = React.forwardRef(({close}, ref) => {
 
     const [isLargeScreen] = useMediaQuery("(min-width: 768px)")
 
-    const useOverlayDisp = () => {
-        const [details, setDetails] = useState(false)
+    // const useOverlayDisp = () => {
+    //     const [details, setDetails] = useState(false)
 
-        const showDetails = () => {
-            setDetails(true)
-        }
-        const hideDetails = () => {
-            setDetails(false)
-        }
+    //     const showDetails = () => {
+    //         setDetails(true)
+    //     }
+    //     const hideDetails = () => {
+    //         setDetails(false)
+    //     }
 
-        return {
-            details,
-            showDetails,
-            hideDetails
-        }
-    }
+    //     return {
+    //         details,
+    //         showDetails,
+    //         hideDetails
+    //     }
+    // }
 
     const variants = {
         visible: {opacity: 1, scaleY: 1, originY: 0},
         hidden: {opacity: 0, scaleY: 0, originY: 0},
     }
 
-    const btDts = useOverlayDisp()
-    const bardoDts = useOverlayDisp()
-    const sg8Dts = useOverlayDisp()
+    // const btDts = useOverlayDisp()
+    // const bardoDts = useOverlayDisp()
+    // const sg8Dts = useOverlayDisp()
 
     useOutsideClick({
         ref: ref,
@@ -78,73 +76,44 @@ const Projects = React.forwardRef(({close}, ref) => {
             </Text>
 
             <LinkBox 
-                onMouseEnter={btDts.showDetails} 
-                onMouseLeave={btDts.hideDetails} 
+                // onMouseEnter={btDts.showDetails} 
+                // onMouseLeave={btDts.hideDetails} 
+                _hover={{ textColor: 'white' }}
             >
                 <LinkOverlay href="http://burning-trees.vercel.app" isExternal>
                     <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible" pb={2}>
                         <Text fontWeight="semibold">Burning Trees</Text>
                         <Text>My personal music library.</Text>
-                        <Center pt={2}>
-                            <MotionImage 
-                                w={250}
-                                h={150}
-                                loading="eager"
-                                src="bt.png" 
-                                rounded="lg" 
-                                variants={variants} 
-                                initial="hidden"
-                                animate="visible"
-                            />
-                        </Center>
                     </MotionBox>
                 </LinkOverlay>
             </LinkBox>
 
+            <Divider bgColor="black" borderColor="black" pt={1} />
+
             <LinkBox 
-                onMouseEnter={bardoDts.showDetails} 
-                onMouseLeave={bardoDts.hideDetails} 
+                // onMouseEnter={bardoDts.showDetails} 
+                // onMouseLeave={bardoDts.hideDetails} 
+                _hover={{ textColor: 'white' }}
             >
                 <LinkOverlay href="http://bardocap.herokuapp.com" isExternal>
                     <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible" pb={2}>
                         <Text fontWeight="semibold">Bardo Capital</Text>
                         <Text>Design for an upcoming hedge fund with a minimalist ethos.</Text>
-                        <Center pt={2}>
-                            <MotionImage 
-                                w={250}
-                                h={150}
-                                loading="eager"
-                                src="bardocap.png" 
-                                rounded="lg" 
-                                variants={variants} 
-                                initial="hidden"
-                                animate="visible"
-                            />
-                        </Center>
                     </MotionBox>
                 </LinkOverlay>
             </LinkBox>
 
+            <Divider bgColor="black" borderColor="black" pt={1} />
+
             <LinkBox 
-                onMouseEnter={sg8Dts.showDetails} 
-                onMouseLeave={sg8Dts.hideDetails} 
+                // onMouseEnter={sg8Dts.showDetails} 
+                // onMouseLeave={sg8Dts.hideDetails} 
+                _hover={{ textColor: 'white' }}
             >
                 <LinkOverlay href="http://sg8.vercel.app" isExternal>
                     <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible" pb={2}>
                         <Text fontWeight="semibold">SG8</Text>
                         <Text>Portfolio website for financial analyst and trader.</Text>
-                        <Center pt={2}>
-                            <MotionImage 
-                                w={250}
-                                h={150}
-                                loading="eager"
-                                src="sg8.png" 
-                                rounded="lg" 
-                                variants={variants} 
-                                initial="hidden"
-                                animate="visible"
-                            />
-                        </Center>
                     </MotionBox>
                 </LinkOverlay>
             </LinkBox>
