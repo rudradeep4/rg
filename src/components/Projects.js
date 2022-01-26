@@ -4,16 +4,14 @@ import {
     Divider,
     Image,
     Center,
-    IconButton,
     LinkBox,
     LinkOverlay,
     useOutsideClick,
     useMediaQuery,
     VStack
 } from '@chakra-ui/react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import React, { useState } from 'react'
-import { BiLinkExternal } from 'react-icons/bi'
 
 const MotionImage = motion(Image)
 const MotionBox = motion(Box)
@@ -55,9 +53,27 @@ const Projects = React.forwardRef(({close}, ref) => {
     })
 
     return (
-        <VStack ref={ref} textAlign="center" spacing={10}>
+        <VStack 
+            ref={ref} 
+            textAlign="center" 
+            spacing={10} 
+            h={700} 
+            overflowY='scroll'
+            css={{
+                '&::-webkit-scrollbar': {
+                  width: '2px',
+                },
+                '&::-webkit-scrollbar-track': {
+                  width: '2px',
+                },
+                '&::-webkit-scrollbar-thumb': {
+                  background: "#000000",
+                  borderRadius: '24px',
+                },
+            }}
+        >
 
-            <Text py={10} fontSize="lg" fontWeight="semibold">
+            <Text pt={10} pb={5} fontSize="lg" fontWeight="semibold">
                 Projects
             </Text>
 
@@ -65,178 +81,72 @@ const Projects = React.forwardRef(({close}, ref) => {
                 onMouseEnter={btDts.showDetails} 
                 onMouseLeave={btDts.hideDetails} 
             >
-                {isLargeScreen
-                    ?  <LinkOverlay href="http://burning-trees.vercel.app" isExternal>
-                            <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible" pb={2}>
-                                <Text fontWeight="semibold">Burning Trees</Text>
-                                <Text>My personal music library.</Text>
-                                <AnimatePresence>
-                                    {!btDts.details && (
-                                        <IconButton 
-                                            icon={<BiLinkExternal />} 
-                                            variant="ghost" 
-                                            variants={variants} 
-                                            initial="visible" 
-                                            animate="hidden" />
-                                    )}
-                                </AnimatePresence>
-                            </MotionBox>
-                            {btDts.details && (
-                                <AnimatePresence>
-                                    <Center>
-                                        <MotionImage 
-                                            w={250}
-                                            h={150}
-                                            loading="eager"
-                                            src="bt.png" 
-                                            rounded="lg" 
-                                            variants={variants} 
-                                            initial="hidden"
-                                            animate="visible"
-                                        />
-                                    </Center>
-                                </AnimatePresence>
-                            )}
-                        </LinkOverlay> 
-                    :   <LinkOverlay href="http://burning-trees.vercel.app" isExternal>
-                            <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible" pb={2}>
-                                <Text fontWeight="semibold">Burning Trees</Text>
-                                <Text>My personal music library.</Text>
-                                <Center pt={2}>
-                                    <MotionImage 
-                                        w={250}
-                                        h={150}
-                                        loading="eager"
-                                        src="bt.png" 
-                                        rounded="lg" 
-                                        variants={variants} 
-                                        initial="hidden"
-                                        animate="visible"
-                                    />
-                                </Center>
-                            </MotionBox>
-                        </LinkOverlay>
-                }
+                <LinkOverlay href="http://burning-trees.vercel.app" isExternal>
+                    <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible" pb={2}>
+                        <Text fontWeight="semibold">Burning Trees</Text>
+                        <Text>My personal music library.</Text>
+                        <Center pt={2}>
+                            <MotionImage 
+                                w={250}
+                                h={150}
+                                loading="eager"
+                                src="bt.png" 
+                                rounded="lg" 
+                                variants={variants} 
+                                initial="hidden"
+                                animate="visible"
+                            />
+                        </Center>
+                    </MotionBox>
+                </LinkOverlay>
             </LinkBox>
-
-            <Divider bgColor="black" borderColor="black" pt={1} />
 
             <LinkBox 
                 onMouseEnter={bardoDts.showDetails} 
                 onMouseLeave={bardoDts.hideDetails} 
             >
-                {isLargeScreen 
-                    ?   <LinkOverlay href="http://bardocap.herokuapp.com" isExternal>
-                            <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible" pb={2}>
-                                <Text fontWeight="semibold">Bardo Capital</Text>
-                                <Text>Design for an upcoming hedge fund with a minimalist ethos.</Text>
-                                <AnimatePresence>
-                                    {!bardoDts.details && (
-                                        <IconButton 
-                                            icon={<BiLinkExternal />} 
-                                            variant="ghost" 
-                                            variants={variants} 
-                                            initial="visible" 
-                                            animate="hidden" />
-                                    )}
-                                </AnimatePresence>
-                            </MotionBox>
-                            {bardoDts.details && (
-                                <AnimatePresence>
-                                    <Center>
-                                        <MotionImage 
-                                            w={250}
-                                            h={150}
-                                            loading="eager"
-                                            src="bardocap.png" 
-                                            rounded="lg" 
-                                            variants={variants} 
-                                            initial="hidden"
-                                            animate="visible"
-                                        />
-                                    </Center>
-                                </AnimatePresence>
-                            )}
-                        </LinkOverlay>
-                    :   <LinkOverlay href="http://bardocap.herokuapp.com" isExternal>
-                            <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible" pb={2}>
-                                <Text fontWeight="semibold">Bardo Capital</Text>
-                                <Text>Design for an upcoming hedge fund with a minimalist ethos.</Text>
-                                <Center pt={2}>
-                                    <MotionImage 
-                                        w={250}
-                                        h={150}
-                                        loading="eager"
-                                        src="bardocap.png" 
-                                        rounded="lg" 
-                                        variants={variants} 
-                                        initial="hidden"
-                                        animate="visible"
-                                    />
-                                </Center>
-                            </MotionBox>
-                        </LinkOverlay>
-                }
+                <LinkOverlay href="http://bardocap.herokuapp.com" isExternal>
+                    <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible" pb={2}>
+                        <Text fontWeight="semibold">Bardo Capital</Text>
+                        <Text>Design for an upcoming hedge fund with a minimalist ethos.</Text>
+                        <Center pt={2}>
+                            <MotionImage 
+                                w={250}
+                                h={150}
+                                loading="eager"
+                                src="bardocap.png" 
+                                rounded="lg" 
+                                variants={variants} 
+                                initial="hidden"
+                                animate="visible"
+                            />
+                        </Center>
+                    </MotionBox>
+                </LinkOverlay>
             </LinkBox>
-
-            <Divider bgColor="black" borderColor="black" pt={1} />
 
             <LinkBox 
                 onMouseEnter={sg8Dts.showDetails} 
                 onMouseLeave={sg8Dts.hideDetails} 
             >
-                {isLargeScreen
-                    ?  <LinkOverlay href="http://sg8.vercel.app" isExternal>
-                            <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible" pb={2}>
-                                <Text fontWeight="semibold">SG8</Text>
-                                <Text>Portfolio website for financial analyst and trader.</Text>
-                                <AnimatePresence>
-                                    {!sg8Dts.details && (
-                                        <IconButton 
-                                            icon={<BiLinkExternal />} 
-                                            variant="ghost" 
-                                            variants={variants} 
-                                            initial="visible" 
-                                            animate="hidden" />
-                                    )}
-                                </AnimatePresence>
-                            </MotionBox>
-                            {sg8Dts.details && (
-                                <AnimatePresence>
-                                    <Center>
-                                        <MotionImage 
-                                            w={250}
-                                            h={150}
-                                            loading="eager"
-                                            src="sg8.png" 
-                                            rounded="lg" 
-                                            variants={variants} 
-                                            initial="hidden"
-                                            animate="visible"
-                                        />
-                                    </Center>
-                                </AnimatePresence>
-                            )}
-                        </LinkOverlay> 
-                    :   <LinkOverlay href="http://sg8.vercel.app" isExternal>
-                            <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible" pb={2}>
-                                <Text fontWeight="semibold">SG8</Text>
-                                <Text>Portfolio website for financial analyst and trader.</Text>
-                                <Center pt={2}>
-                                    <MotionImage 
-                                        w={250}
-                                        h={150}
-                                        loading="eager"
-                                        src="sg8.png" 
-                                        rounded="lg" 
-                                        variants={variants} 
-                                        initial="hidden"
-                                        animate="visible"
-                                    />
-                                </Center>
-                            </MotionBox>
-                        </LinkOverlay>
-                }
+                <LinkOverlay href="http://sg8.vercel.app" isExternal>
+                    <MotionBox fontSize="md" variants={variants} initial="hidden" animate="visible" pb={2}>
+                        <Text fontWeight="semibold">SG8</Text>
+                        <Text>Portfolio website for financial analyst and trader.</Text>
+                        <Center pt={2}>
+                            <MotionImage 
+                                w={250}
+                                h={150}
+                                loading="eager"
+                                src="sg8.png" 
+                                rounded="lg" 
+                                variants={variants} 
+                                initial="hidden"
+                                animate="visible"
+                            />
+                        </Center>
+                    </MotionBox>
+                </LinkOverlay>
             </LinkBox>
         </VStack>
     )
