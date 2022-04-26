@@ -2,15 +2,12 @@ import React from 'react';
 import {
   ChakraProvider,
   Box,
-  Grid,
-  useMediaQuery
+  Grid
 } from '@chakra-ui/react';
 import '@fontsource/inconsolata'
 import theme from './theme'
 import { Global, css } from '@emotion/react'
 import LandingPage from './routes/LandingPage';
-import LandingPageMobile from './routes/LandingPageMobile';
-
 
 function App() {
 
@@ -20,14 +17,13 @@ function App() {
      box-shadow: none;
   }`
 
-  const [isLargeScreen] = useMediaQuery("(min-width: 768px)")
 
   return (
     <ChakraProvider theme={theme}>
       <Global styles={GlobalStyles} />
       <Box bg="#FA7B62">
         <Grid minH="100vh" p={3}>
-            {isLargeScreen ? <LandingPage /> : <LandingPageMobile />} 
+            <LandingPage />
         </Grid>
       </Box>
     </ChakraProvider>
